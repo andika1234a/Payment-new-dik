@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<style>
+@keyframes rainbowText {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    57% { color: blue; }
+    71% { color: indigo; }
+    85% { color: violet; }
+    100% { color: red; }
+}
+.rainbow {
+    animation: rainbowText 4s linear infinite;
+    font-weight: bold;
+}
+</style>
+
+<style>
+    body {
+        background-color: #ffffff;
+        color: #000000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+        text-align: center;
+    }
+    a {
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    a:hover {
+        color: #555555;
+    }
+</style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><span class="rainbow">PAYMENT <span class="rainbow">DIK</span></span></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .animate-fade-in {
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    #payment-section {
+      display: none;
+    }
+  </style>
+</head>
+<body class="m-0 p-0 overflow-hidden">
+
+  <!-- Halaman Awal -->
+  <div id="start-section" class="bg-black flex items-center justify-center h-screen text-white animate-fade-in z-10 relative">
+    <div class="text-center">
+      <h1 class="text-4xl font-bold mb-6">Selamat Datang</h1>
+      <button onclick="goToPayment()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition">
+        Go to Payment
+      </button>
+    </div>
+  </div>
+
+  <!-- Section Payment -->
+  <div id="payment-section" class="w-full h-screen relative overflow-hidden">
+
+    <!-- Background Video -->
+    <video autoplay loop muted playsinline class="absolute w-full h-full object-cover z-[-1]">
+      <source src="https://files.catbox.moe/wp2jc2.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+
+    <!-- Konten -->
+    <div class="flex flex-col items-center justify-center h-full text-white relative z-10 text-center animate-fade-in space-y-4">
+      <h1 class="text-4xl font-bold"><span class="rainbow">PAYMENT DIK</span></h1>
+      <p class="text-lg font-semibold">081946492969</p>
+      <button onclick="copyDANA()" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded shadow">Copy Nomor DANA</button>
+      <p class="text-sm text-gray-300">DIK</p>
+      <img src="https://files.catbox.moe/lb6v0e.png" alt="QRIS" class="w-60 mt-4 rounded-xl shadow-lg">
+    </div>
+
+    <!-- Audio -->
+    <audio id="bg-audio" loop>
+      <source src="https://files.catbox.moe/8j61zo.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function goToPayment() {
+      document.getElementById("start-section").style.display = "none";
+      document.getElementById("payment-section").style.display = "block";
+      const audio = document.getElementById("bg-audio");
+      audio.play().catch(e => console.warn("Autoplay diblokir"));
+    }
+
+    function copyDANA() {
+      navigator.clipboard.writeText("081946492969").then(function() {
+        alert("Nomor DANA disalin!");
+      }, function(err) {
+        alert("Gagal menyalin nomor.");
+      });
+    }
+  </script>
+
+<p style="text-align:center; font-size:18px; margin-top:20px;"><a href="https://wa.me/6285923596743" style="color:#00aaff; text-decoration:none; font-weight:bold;">Hubungi Saya</a></p>
+</body>
+</html>
